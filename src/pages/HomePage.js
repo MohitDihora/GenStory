@@ -42,7 +42,7 @@ function HomePage() {
   const [length, setLength] = useState("Medium");
   const [prompt, setPrompt] = useState("");
   const [errors, setErrors] = useState({});
-  const [storyHistory, setStoryHistory] = useState([]);
+  const [, setStoryHistory] = useState([]);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const genreRef = useRef(null);
