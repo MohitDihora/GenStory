@@ -116,7 +116,7 @@ function LoadingPage() {
     if (!hasGeneratedStory.current) {
       fetchStory();
     }
-  }, [navigate, state]);
+  }, [navigate, state, theme]);
 
   return (
     <div className={`fullscreen-loader ${theme}`}>
