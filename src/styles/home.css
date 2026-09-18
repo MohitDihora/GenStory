@@ -1,0 +1,781 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Rotate arrow when details is open */
+details[open] summary .arrow {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Ensure the arrow always has a transition */
+details summary .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* MAIN CONTAINER */
+.home-container {
+  width: 100%;
+  padding: 20px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+/* NAVIGATION BAR */
+.navigation {
+  height: 100px;
+  padding: 0px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+}
+
+.navigation .home-logo img {
+  height: 35px;
+}
+
+.navigation .home-logo span {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.theme-toggle-icon,
+.settings-icon {
+  height: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.settings-icon:hover {
+  transform: rotate(30deg);
+  color: #007bff;
+}
+
+.section-1 span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.theme-icon {
+  font-size: 22px;
+}
+
+.custom-textarea {
+  height: 200px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  resize: none;
+  outline: none;
+  margin-top: 11px;
+}
+
+.dropdown-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custom-dropdown {
+  border-radius: 12px;
+  padding: 10px 15px;
+}
+
+.custom-dropdown summary {
+  cursor: pointer;
+  font-size: 16px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-dropdown[open] .arrow {
+  transform: rotate(180deg);
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.dropdown-list {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1001;
+}
+
+.dropdown-list li {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.story-category {
+  margin-bottom: 15px;
+}
+
+.category-label {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.pill:hover {
+  box-shadow: 2px 3px 0px rgba(125, 107, 168, 0.8);
+}
+
+.pill.selected {
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 6px #4f378a;
+}
+
+.section-4,
+.section-6 .len {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button {
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  border-radius: 0;
+}
+
+.button button {
+  background: linear-gradient(to right, #4d226b, #3636a5, #1e1e31);
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.fullscreen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 47, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-loader p {
+  color: white;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* section-3 */
+.section-3 {
+  font-weight: bold;
+}
+
+.story-crafter-wrapper {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 13px;
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/* LIGHT THEME */
+/* LIGHT THEME */
+body[data-theme="light"] {
+  background: linear-gradient(to bottom, #f2f2f2, #ffffff);
+  color: #1f1f31; /* Primary text color for light theme */
+}
+
+body[data-theme="light"] .navigation {
+  background: linear-gradient(to bottom, #e3e3f7, #f8f8ff);
+}
+
+body[data-theme="light"] .settings-icon {
+  color: #1f1f31; /* Text color for light theme */
+}
+
+body[data-theme="light"] .custom-textarea,
+body[data-theme="light"] .custom-dropdown,
+body[data-theme="light"] .story-crafter-wrapper {
+  background: #ffffff;
+  color: #1f1f31;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .pill {
+  color: #1f1f31;
+  border: 2px solid #b8b8d0;
+}
+
+body[data-theme="light"] .pill.selected {
+  background: linear-gradient(to right, #e3e3f7, #f8f8ff) padding-box,
+    linear-gradient(to bottom right, #6b64d6, #4f378a) border-box;
+  color: #1f1f31;
+  box-shadow: 2px 2px 6px #b8b8f0;
+}
+
+body[data-theme="light"] .dropdown-list li:hover {
+  background-color: #f0f0f7; /* Lighter hover for light mode lists/dropdowns */
+}
+
+body[data-theme="light"] .button {
+  background: linear-gradient(to right, #e3e3f7, #f8f8ff);
+}
+
+body[data-theme="light"] .button button {
+  background: linear-gradient(to right, #e3e3f7, #f8f8ff); /* ✅ FIXED */
+  color: #1f1f31;
+}
+
+/* Sidebar Specific Colors - Light Mode */
+body[data-theme="light"] .settings-sidebar {
+  background-color: #f7f7fa;
+  color: #1f1f31;
+  border-left: 1px solid #e0e0e0;
+}
+
+body[data-theme="light"] .sidebar-header {
+  background-color: #e3e3f7;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body[data-theme="light"] .close-sidebar-icon {
+  color: #666666; /* Secondary text color */
+}
+
+body[data-theme="light"] .sidebar-main-menu-list li {
+  color: #1f1f31;
+}
+
+body[data-theme="light"] .sidebar-main-menu-list li:hover {
+  background-color: #e8e8f3;
+}
+
+/* History Modal Specific Colors - Light Mode */
+body[data-theme="light"] .history-modal {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #1f1f31;
+}
+
+body[data-theme="light"] .modal-header {
+  background-color: #e8e8f3;
+  border-bottom: 1px solid #e0e0e0;
+  color: #1f1f31;
+}
+
+body[data-theme="light"] .close-modal-icon {
+  color: #666666;
+}
+
+body[data-theme="light"] .modal-history-item {
+  color: #1f1f31;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body[data-theme="light"] .modal-history-item:hover {
+  background-color: #f0f0f7;
+}
+
+body[data-theme="light"] .story-timestamp,
+body[data-theme="light"] .no-history-message,
+body[data-theme="light"] .delete-icon {
+  color: #666666;
+}
+
+/* DARK THEME */
+body[data-theme="dark"] {
+  background: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+  color: white; /* Primary text color for dark theme */
+}
+
+body[data-theme="dark"] .navigation {
+  background: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+}
+
+body[data-theme="dark"] .settings-icon {
+  color: #ffffff; /* Text color for dark theme */
+}
+
+body[data-theme="dark"] .custom-textarea,
+body[data-theme="dark"] .custom-dropdown,
+body[data-theme="dark"] .story-crafter-wrapper {
+  background: linear-gradient(to right, #4e4e5d, #545564, #323242);
+  color: #b8c0cd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="dark"] .pill {
+  background: linear-gradient(to right, #70707d, #535361, #535360);
+  color: white;
+  border: 2px solid grey;
+}
+
+body[data-theme="dark"] .pill.selected {
+  background: linear-gradient(#2b2b41, #2b2b41) padding-box,
+    linear-gradient(to bottom right, #ffffff, #b9afd0, #7d6ba8, #4f378a)
+      border-box;
+}
+
+body[data-theme="dark"] .dropdown-list li:hover {
+  background-color: #2a2a2a; /* Darker hover for dark mode lists/dropdowns */
+}
+
+body[data-theme="dark"] .button {
+  background: linear-gradient(to right, #1f1f31, #26263b, #2b2b41);
+}
+
+body[data-theme="dark"] .button button {
+  color: white;
+}
+
+/* Sidebar Specific Colors - Dark Mode */
+body[data-theme="dark"] .settings-sidebar {
+  background-color: #282828;
+  color: #ffffff;
+  border-left: 1px solid #444;
+}
+
+body[data-theme="dark"] .sidebar-header {
+  background-color: #333333;
+  border-bottom: 1px solid #444;
+}
+
+body[data-theme="dark"] .close-sidebar-icon {
+  color: #aaaaaa;
+}
+
+body[data-theme="dark"] .sidebar-main-menu-list li {
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .sidebar-main-menu-list li:hover {
+  background-color: #3a3a3a;
+}
+
+/* History Modal Specific Colors - Dark Mode */
+body[data-theme="dark"] .history-modal {
+  background-color: #333333;
+  border: 1px solid #555555;
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .modal-header {
+  background-color: #444444;
+  border-bottom: 1px solid #555555;
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .close-modal-icon {
+  color: #aaaaaa;
+}
+
+body[data-theme="dark"] .modal-history-item {
+  color: #ffffff;
+  border-bottom: 1px solid #555555;
+}
+
+body[data-theme="dark"] .modal-history-item:hover {
+  background-color: #4a4a4a;
+}
+
+body[data-theme="dark"] .story-timestamp,
+body[data-theme="dark"] .no-history-message,
+body[data-theme="dark"] .delete-icon {
+  color: #aaaaaa;
+}
+
+/* ========== ANIMATION ENHANCEMENTS ========== */
+
+/* Smooth fade-in for the entire main section */
+motion-main,
+main {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Dropdown list items smoother on hover */
+.dropdown-list li {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Subtle bounce on pill hover */
+.pill:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Section title fade-in animation */
+.section-1 span,
+.section-2 p,
+.section-3 span,
+.section-4 p,
+.section-4 span,
+.section-5 .len,
+.section-6 .len {
+  animation: fadeInText 1s ease-in-out forwards;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-4 .len {
+  animation: fadeInText 1s ease-in-out forwards !important;
+}
+
+/* Navigation logo text slight glow */
+.navigation .home-logo span {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide up with opacity when dropdown opens */
+.custom-dropdown[open] .dropdown-list {
+  animation: fadeSlideIn 0.3s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Change alert message color */
+.error-message {
+  color: #ff4d4f;
+  border-radius: 8px;
+  margin-top: 9px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- Settings Sidebar Styles (no change here, directly themed above) --- */
+.settings-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.close-sidebar-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.close-sidebar-icon:hover {
+  color: #ff4d4f;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+/* Overlay for when sidebar is open */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1400;
+  animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- Sidebar Main Menu List --- */
+.sidebar-main-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-main-menu-list li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* --- NEW: History Modal Styles (no change here, directly themed above) --- */
+.history-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1600;
+  animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+.history-modal-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1550;
+  animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+.history-modal {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1650;
+  transform: scale(0.95);
+  animation: popInModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.close-modal-icon {
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: color 0.2s ease;
+}
+
+.close-modal-icon:hover {
+  color: #ff4d4f;
+}
+
+.modal-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.modal-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.modal-history-item:last-child {
+  border-bottom: none;
+}
+
+/* Re-use story-item-content, story-title-text, story-timestamp, delete-icon */
+.story-item-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.story-title-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.story-timestamp {
+  font-size: 0.8rem;
+}
+
+.no-history-message {
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.delete-icon {
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.delete-icon:hover {
+  color: #ff4d4f;
+  transform: scale(1.1);
+  background-color: rgba(255, 77, 79, 0.1);
+}
+/* --- END History Modal Styles --- */
+
+/* Loader Overlay for StoryPage download (if applicable) */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  z-index: 2000;
+}
+
+.loader-overlay .spinner {
+  border-left-color: #f6c90e;
+  margin-bottom: 15px;
+}
+
+.loader-overlay p {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,64 @@
+/* Reset and Box-Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full height splash screen */
+.splash-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Logo styling */
+.logo {
+  height: 200px;
+  /* margin-bottom: 20px; */
+}
+
+/* Title (GenStory) */
+.title {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+/* Tagline */
+.tagline {
+  font-style: italic;
+  font-size: 14px;
+  color: #d1d1d1;
+  margin-top: 8px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+/* DARK THEME */
+body[data-theme="dark"] .splash-container {
+  background: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+  color: white;
+}
+
+/* LIGHT THEME */
+body[data-theme="light"] .splash-container {
+  background: linear-gradient(to bottom, #f2f2f2, #ffffff);
+  color: #1f1f31;
+}
+
+body[data-theme="light"] .tagline {
+  color: #555;
+}

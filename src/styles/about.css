@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Josefin Sans, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === HEADER === */
+.about-header {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === DARK THEME === */
+.about-page.dark {
+  background-color: #121228 !important;
+  color: #ffffff;
+}
+
+.about-page.dark .about-header {
+  background: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41) !important;
+}
+
+.about-page.dark .back-button,
+.about-page.dark .header-title {
+  color: white;
+}
+
+.about-page.dark .about-title,
+.about-page.dark .about-content h2 {
+  color: white;
+}
+
+.about-page.dark .about-tagline,
+.about-page.dark .about-content p {
+  color: #a0a0b2;
+}
+
+/* === LIGHT THEME === */
+.about-page.light {
+  background-color: #ffffff !important;
+  color: #000000;
+}
+
+.about-page.light .about-header {
+  background: linear-gradient(to bottom, #e3e3f7, #f8f8ff);
+  color: #1f1f31;
+  border-bottom: 1px solid #ddd;
+}
+
+.about-page.light .back-button,
+.about-page.light .header-title {
+  color: #1f1f31;
+}
+
+.about-page.light .about-title,
+.about-page.light .about-content h2 {
+  color: #1f1f31;
+}
+
+.about-page.light .about-tagline,
+.about-page.light .about-content p {
+  color: #555777;
+}
+
+/* === COMMON HEADER === */
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 0;
+  margin-right: 0.5rem;
+  transition: color 0.3s;
+}
+
+.back-icon {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* === HERO === */
+.about-hero {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-tagline {
+  font-size: 1.2rem;
+}
+
+/* === CONTENT === */
+.about-content {
+  padding: 0px 30px;
+}
+
+.about-content h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.about-content p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 29px;
+  }
+
+  .about-tagline {
+    font-size: 1rem;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+}

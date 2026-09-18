@@ -1,0 +1,27 @@
+.fullscreen-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ------ Dark Theme ------- */
+.fullscreen-loader.dark {
+  background-color: #1e1e2f;
+  color: white;
+}
+
+/* ------- Light Theme -------- */
+.fullscreen-loader.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.fullscreen-loader.light p {
+  color: black;
+}

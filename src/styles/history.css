@@ -1,0 +1,140 @@
+
+/* Light theme defaults using static values */
+:root {
+  --bg: #f5f5f5;
+  --card-bg: #ffffff;
+  --text: #1f1f31;
+  --text-light: #555777;
+  --delete-hover: #e60000;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+  --card-bg: #1e1e36;
+  --text: #ffffff;
+  --text-light: #a0a0b2;
+  --delete-hover: #ff2c2c;
+}
+/* Show only one line of content with ... */
+.story-preview {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+/* Page container */
+.history-page-container {
+  color: var(--text);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+}
+
+/* Header */
+.history-header {
+  background: linear-gradient(to bottom, #e3e3f7, #f8f8ff); /* Static for light */
+  height: 100px;
+  padding: 0 15px !important;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Dark theme override for header */
+[data-theme="dark"] .history-header {
+  background-image: linear-gradient(to bottom, #1f1f31, #26263b, #2b2b41);
+}
+
+/* Back icon */
+.back-icon {
+  font-size: 1.4rem;
+  margin-right: 12px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Header title */
+.history-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 64px;
+  color: var(--text);
+}
+
+/* Story list wrapper */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 120px 15px 15px !important;
+}
+
+/* History card (Light theme default) */
+.history-card {
+  background: #ffffff; /* Static white for light */
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+/* History card in dark theme */
+[data-theme="dark"] .history-card {
+  background: linear-gradient(to left, #4e4e5d, #545564, #323242);
+}
+
+/* Hover effect */
+.history-card:hover {
+  transform: scale(1.01);
+}
+
+/* Left side of card */
+.card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Story title */
+.story-title {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+/* Timestamp */
+.story-timestamp {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* Delete icon */
+.delete-icon {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: var(--delete-hover);
+}
+
+/* No history message */
+.no-history-message {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--text-light);
+  font-style:italic;
+}
